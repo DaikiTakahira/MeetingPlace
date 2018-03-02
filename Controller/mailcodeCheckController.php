@@ -1,8 +1,8 @@
 <?php
 session_start();
 //必要なファイルの呼び出し
-require_once("../Model/commonModel.php");
-require_once("../Model/mailcodeCheckModel.php");
+require_once("../../Model/commonModel.php");
+require_once("../../Model/mailcodeCheckModel.php");
 
 //エラー関数初期化
 $errors = array();

@@ -1,5 +1,5 @@
 <?php
-require_once("../Controller/profileController.php");
+require_once("../../Controller/profileController.php");
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ require_once("../Controller/profileController.php");
               <a class="nav-link" href="../follower/?memberId=<? echo $memberId ?>">フォロワー:<? echo $follower; ?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="../Model/logoutModel.php">ログアウト<span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="../../Model/logoutModel.php">ログアウト<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </nav>

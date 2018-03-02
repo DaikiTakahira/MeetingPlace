@@ -2,15 +2,15 @@
 session_start();
 if(!isset($_SESSION['mail'])){
   //SESSIONがなければTOP画面に弾く
-  header("Location: ../");
+  header("Location: ../../");
   exit();
 }else{
   $mail = htmlspecialchars($_SESSION['mail']);
 }
 //必要なファイルの呼び出し
-require_once("../Model/commonModel.php");
-require_once("../Model/registrationFormModel.php");
-require_once("../Model/validatorModel.php");
+require_once("../../Model/commonModel.php");
+require_once("../../Model/registrationFormModel.php");
+require_once("../../Model/validatorModel.php");
 
 //エラー関数初期化
 $errors = array();

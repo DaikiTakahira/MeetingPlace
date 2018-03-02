@@ -1,13 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['memberId'])){
-  header("Location: ../");
+  header("Location: ../../");
 }
 //必要なファイルの呼び出し
-require_once("../Model/commonModel.php");
-require_once("../Model/noteModel.php");
-require_once("../Model/niceModel.php");
-require_once("../Model/messageModel.php");
+require_once("../../Model/commonModel.php");
+require_once("../../Model/noteModel.php");
+require_once("../../Model/niceModel.php");
+require_once("../../Model/messageModel.php");
 
 //エラー関数初期化
 $errors = array();
@@ -19,15 +19,21 @@ $messageOBJ = new messageModel();
 
 //未読メッセージ件数取得
 $countNotice = $messageOBJ -> messageNotice($memberId);
+//セレクトボックス生成
+$department = $noteOBJ -> departmentSelect();
 //自分のみ表示ボタン
 if (isset($_POST['myList'])) {
   $outputValue = $noteOBJ -> myList($memberId);
 }else{
   $outputValue = $noteOBJ -> noteList();
 }
-//全て表示ボタン
-if (isset($_POST['All'])) {
-  $outputValue = $noteOBJ -> noteList();
+//検索ボタン
+if (isset($_POST['Search'])) {
+  if ($_POST['department'] == "All") {
+    $outputValue = $noteOBJ -> noteList();
+  }else{
+    $outputValue = $noteOBJ -> SearchList($_POST['department']);
+  }
 }
 //削除ボタン
 if (isset($_POST['delete'])){

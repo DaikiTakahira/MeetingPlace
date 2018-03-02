@@ -1,5 +1,5 @@
 <?php
-require_once("../Controller/registrationFormController.php");
+require_once("../../Controller/registrationFormController.php");
 ?>
 
 <!DOCTYPE html>

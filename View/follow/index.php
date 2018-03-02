@@ -1,12 +1,12 @@
 <?php
-require_once("../Controller/followController.php");
+require_once("../../Controller/followController.php");
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>フォロワー画面</title>
+    <title>フォロー画面</title>
     <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css">
     <link href="http://getbootstrap.com/docs/4.0/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
   </head>
@@ -25,13 +25,13 @@ require_once("../Controller/followController.php");
         </nav> -->
         <h3 class="text-muted">MeetingPlace</h3>
     </div>
-      <h1>フォロワー一覧画面</h1>
+      <h1>フォロー一覧画面</h1>
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0" cellpadding="0">
           <thead>
             <td>名前</td><td>学系</td>
           </thead>
-          <?php echo $follower; ?>
+          <?php echo $outputValue; ?>
        </table>
       </div>
       <a class="lead" href="../noteList/">戻る</a>

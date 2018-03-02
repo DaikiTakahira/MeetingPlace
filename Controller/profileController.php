@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['memberId'])){
   //SESSIONがなければTOP画面に弾く
-  header("Location: ../");
+  header("Location: ../../");
   exit();
 }else{
   $loginId = $_SESSION['memberId'];
@@ -13,11 +13,11 @@ if ($_GET) {
   $memberId = $loginId;
 }
 //必要なファイルの呼び出し
-require_once("../Model/commonModel.php");
-require_once("../Model/profileModel.php");
-require_once("../Model/validatorModel.php");
-require_once("../Model/followModel.php");
-require_once("../Model/messageModel.php");
+require_once("../../Model/commonModel.php");
+require_once("../../Model/profileModel.php");
+require_once("../../Model/validatorModel.php");
+require_once("../../Model/followModel.php");
+require_once("../../Model/messageModel.php");
 
 //エラー関数初期化
 $errors = array();

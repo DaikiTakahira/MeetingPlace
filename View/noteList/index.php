@@ -1,5 +1,5 @@
 <?php
-require_once("../Controller/noteListController.php");
+require_once("../../Controller/noteListController.php");
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +47,7 @@ require_once("../Controller/noteListController.php");
               <a class="nav-link" href="../notice/?memberId=<? echo $memberId ?>">通知[<? echo $countNotice; ?>]</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="../Model/logoutModel.php">ログアウト<span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="../../Model/logoutModel.php">ログアウト<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </nav>
@@ -58,7 +58,8 @@ require_once("../Controller/noteListController.php");
         <table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0" cellpadding="0">
         <form action="" method="POST">
           <input type="submit" name="myList" class="btn btn-primary" value="自分のみ">
-          <input type="submit" name="All" class="btn btn-success" value="全て">
+          <input type="submit" name="Search" class="btn btn-info" value="検索"><p></p>
+          <?php echo $department; ?>
           <thead>
             <td>名前</td><td>投稿内容</td><td>時間</td><td colspan="2">いいね！</td>
           </thead>

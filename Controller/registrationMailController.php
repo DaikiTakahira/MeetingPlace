@@ -1,8 +1,8 @@
 <?php
 //必要なファイルの呼び出し
-require_once("../Model/commonModel.php");
-require_once("../Model/registrationMailModel.php");
-require_once("../Model/validatorModel.php");
+require_once("../../Model/commonModel.php");
+require_once("../../Model/registrationMailModel.php");
+require_once("../../Model/validatorModel.php");
 
 //エラー関数初期化
 $errors = array();

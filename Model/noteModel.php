@@ -26,6 +26,18 @@ class noteModel extends common{
     }
     return $returnValue;
   }
+  public function SearchList($departmentId = ""){
+    $sql = "SELECT memberId,name,noteId,content,time FROM member NATURAL JOIN note WHERE departmentId = ? ORDER BY noteId DESC";
+    $stmt = parent::$pdoIns ->prepare($sql);
+    $stmt -> execute(array($departmentId));
+
+    $returnValue = "";
+    while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+      $nice = self::niceGet($row['noteId']);
+      $returnValue.= "<input type='hidden' name='member' value='".$row['memberId']."'><tr><td><a href='../profile/?memberId=".$row['memberId']."'>".$row['name']."</a></td><td>".$row['content']."</td><td>".$row['time']."</td><td></form><button name='nice' class='btn btn-primary btn-sm' value='".$row['noteId']."'><span >いいね！</span><span style='display: none;'>いいね済み</span></button></td><td>".$nice."</td></tr>";
+    }
+    return $returnValue;
+  }
   public function deleteNote($noteId = ""){
     $sql = "DELETE FROM note WHERE noteId = ?";
     $stmt = parent::$pdoIns ->prepare($sql);
@@ -45,5 +57,19 @@ class noteModel extends common{
     $sql = "INSERT INTO note(memberId,content) VALUES(?,?)";
     $stmt = parent::$pdoIns ->prepare($sql);
     $stmt -> execute(array($memberId,$content));
+  }
+  public function departmentSelect(){
+    //セレクトボックス生成
+    $sql = "SELECT * FROM department";
+    $stmt = parent::$pdoIns -> prepare($sql);
+    $stmt -> execute();
+
+    $departmentCreate = "<select name ='department'><option value='All'>全学系</option>";
+
+    while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+      $departmentCreate.= "<option value='".$row['departmentId']."'>".$row['departmentId']."学系</option>";
+    }
+    $departmentCreate.= "</select>";
+    return $departmentCreate;
   }
 }

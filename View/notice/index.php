@@ -1,41 +1,39 @@
 <?php
-require_once("../Controller/followController.php");
+require_once("../../Controller/noticeController.php");
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>フォロー画面</title>
+    <title>通知一覧画面</title>
     <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css">
     <link href="http://getbootstrap.com/docs/4.0/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
   </head>
   <body>
-  <div class="container">
+    <div class="container">
     <div class="header clearfix">
-        <!-- <nav>
+        <nav>
           <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <h3 class=".nav-item"></h3>
+           <li class="nav-item">
+              <a class="nav-link" href="../noteList/">戻る</a>
             </li>
             <li class="nav-item">
-              <h3 class=".nav-item"></h3>
+              <a class="nav-link active" href="../../Model/logoutModel.php">ログアウト<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-        </nav> -->
+        </nav>
         <h3 class="text-muted">MeetingPlace</h3>
     </div>
-      <h1>フォロー一覧画面</h1>
+      <h1>通知一覧画面</h1>
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover table-condensed" cellspacing="0" cellpadding="0">
           <thead>
-            <td>名前</td><td>学系</td>
+            <td>名前</td><td>未読メッセージ数</td>
           </thead>
           <?php echo $outputValue; ?>
        </table>
       </div>
-      <a class="lead" href="../noteList/">戻る</a>
     </div>
-  </div>
   </body>
 </html>
